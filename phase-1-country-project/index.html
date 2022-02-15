@@ -8,10 +8,20 @@
     <body>
         <script defer src="script.js"></script>
 
-        <nav id="flag-nav"></nav>
-        <div>
-            <img id="displayed-flag">
-        </div>
+        <h1>Country Guide</h1>
 
+        <nav id="flag-nav"></nav>
+        <div id="country-info">
+            <img id="displayed-flag">
+            <h2 id="country-name"></h2>
+            <p id="capital-container">Capital: <span id="capital"></span></p>
+            <p id="language-container">Language<span id="languages"></span></p>
+            <button id="visited-button" type="button"></button>
+        </div>
+        <form id="language-form">
+                <label for="language">Filter by language:</label><br>
+                <input type="text" id="language" name="language">
+                <input type="submit" value="Submit">
+        </form>
     </body>
 </html>

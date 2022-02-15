@@ -1,6 +1,16 @@
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html {
-    background-color: bisque;
+    background-color: #F7EADE;
+}
+
+h1 {
+    background-color:#EFD5BD;
+    padding-left: 10px;
 }
 
 .flag-guide-img {
@@ -16,8 +26,34 @@ html {
 #flag-nav {
     overflow: auto;
     white-space: nowrap;
-    background-color:blanchedalmond;
-    margin: 0;
-    border: 0;
-    padding: 0;
+    background-color:#EFD5BD;
+    border-bottom: 5px solid black;
+}
+
+#displayed-flag {
+    padding-bottom: 10px;
+    height: 320px;
+    width: auto;
+}
+
+#country-info {
+      margin: 25px 10px 20px 15px;
+      float: left;
+}
+
+#country-name {
+    padding-bottom: 10px;
+}
+
+#country-info p {
+    padding-bottom: 10px;
+}
+
+#language-form {
+    float: right;
+    margin: 30px;
+}
+
+#language-form label{
+    margin-bottom: 10px;
 }
