@@ -1,0 +1,23 @@
+
+html {
+    background-color: bisque;
+}
+
+.flag-guide-img {
+    height: 110px;
+    width: auto;
+    margin: 10px;
+}
+
+.flag-guide-img:hover {
+    box-shadow: 0px 5px 15px black;
+}
+
+#flag-nav {
+    overflow: auto;
+    white-space: nowrap;
+    background-color:blanchedalmond;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
