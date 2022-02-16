@@ -5,6 +5,10 @@ const capital = document.getElementById('capital');
 const languages = document.getElementById('languages');
 const visitedBtn = document.getElementById('visited-button');
 const languageForm = document.getElementById('language-form');
+const resetBtn = document.getElementById('reset-button');
+const randomBtn = document.getElementById('random-button');
+const newCountryForm = document.getElementById('new-country-form');
+const newCountryBtn = document.getElementById('new-country-button');
 let currentCountry;
 let countryData;
 
@@ -22,6 +26,7 @@ fetch('https://restcountries.com/v3.1/all')
         }
 
         renderFlags(country);
+        // console.log(country);
     })
 
     displayCountryFacts(countries[0]);
@@ -29,6 +34,7 @@ fetch('https://restcountries.com/v3.1/all')
 
 function renderFlags (country) {
     const flagImg = document.createElement('img');
+    flagImg.setAttribute('id', 'flag-image');
     flagImg.src=country.flags.png;
     flagImg.classList.add('flag-guide-img');
     flagNav.appendChild(flagImg);
@@ -72,4 +78,60 @@ languageForm.addEventListener('submit', (e) => {
     filteredCountries.map(country => renderFlags(country));
     displayCountryFacts(filteredCountries[0]);
     languageForm.reset();
+})
+
+resetBtn.addEventListener('click', () => {
+    flagNav.innerHTML = '';
+    countryData.map(country => renderFlags(country));
+})
+
+randomBtn.addEventListener('click', () => {
+    let counter = 1;
+    const firstInterval = setInterval(function() { 
+        if (counter <= 12) { 
+            displayRandomFlag();
+            counter++;
+    }
+        else { 
+            clearInterval(firstInterval);
+    }
+    }, 160)
+})
+
+function displayRandomFlag() {
+    displayCountryFacts(countryData[Math.floor(Math.random() * 250)]);
+}
+
+newCountryBtn.addEventListener('click', () => {
+    newCountryForm.classList.remove('hidden');
+})
+
+newCountryForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const newCountry = {};
+    newCountry.name = {
+        common: e.target['new-name'].value
+    }
+    newCountry.capital = e.target['new-capital'].value
+    newCountry.languages = {
+        language: e.target['new-language'].value
+    }
+    
+    const newFlagImage = document.getElementById('flag-image');
+    const file = document.getElementById('new-flag').files[0];
+        let reader  = new FileReader();
+        reader.onload = function(e)  {
+            newCountry.flags = {
+                png: e.target.result,
+                svg: e.target.result
+            }
+            countryData.unshift(newCountry);
+            flagNav.innerHTML = '';
+            countryData.map(country => renderFlags(country));
+            displayCountryFacts(newCountry);
+         }
+         reader.readAsDataURL(file);
+    newCountryForm.reset();
+    newCountryForm.classList.add('hidden');
 })
