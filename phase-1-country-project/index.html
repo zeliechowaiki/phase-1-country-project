@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="styles.css" />
-        <title>Phase 1 project</title>
-        <script defer src="script.js"></script>
+        <meta charset="UTF-8" />
+        <title>Country Guide</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <header>
@@ -30,15 +30,38 @@
                 </p> -->
             </div>
 
+        <h1>Country Guide</h1>
 
-            <form id="language-form">
-                <label for="find-language">Find language</label>
-                <input id="input-language" type="text" placeholder="Input language"/>
-
-                <input type="submit" value="Submit"></button>
-            </form>
-            
+        <nav id="flag-nav"></nav>
+        <div id="country-info">
+            <img id="displayed-flag">
+            <h2 id="country-name"></h2>
+            <p id="capital-container">Capital: <span id="capital"></span></p>
+            <p id="language-container">Language<span id="languages"></span></p>
+            <button id="visited-button" type="button"></button>
         </div>
+        <div id="right-elements">
+            <form id="language-form">
+                <label for="language">Filter by language:</label><br>
+                <input type="text" id="language" name="language">
+                <input type="submit" value="Submit">
+            </form>
+            <button id="reset-button">Show all countries</button>
+            <button id="random-button">Random country</button>
+        </div>
+        <button id="new-country-button">Make a new country?</button>
+        <form id="new-country-form" class="hidden">
+            <label for="new-flag">Upload flag:</label>
+            <input type="file" name="new-flag" id="new-flag"
+            accept="image/png, image/jpeg, image/jpg"><br>
+            <label for="new-name">Name country:</label>
+            <input type="text" name="new-name" id="new-name"><br>
+            <label for="new-capital">Add capital:</label>
+            <input type="text" name="new-capital" id="new-capital"><br>
+            <label for="new-language">Add language:</label>
+            <input type="text" name="new-language" id="new-language"><br>
+            <input type="submit" value="Submit">
+        </form>
     </body>
 
 </html>

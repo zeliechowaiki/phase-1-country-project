@@ -1,15 +1,80 @@
-body {
+
+* {
     margin: 0;
-    background-color: #FDF4DC;
-  }
+    padding: 0;
+}
 
-  h1 {
-    font-size: 60px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-style: normal;
-    font-weight: 100;
-  }
+html {
+    background-color: #F7EADE;
+}
 
-#flags {
-    
+h1 {
+    background-color:#EFD5BD;
+    padding-left: 10px;
+}
+
+.flag-guide-img {
+    height: 110px;
+    width: auto;
+    margin: 10px;
+}
+
+.flag-guide-img:hover {
+    box-shadow: 0px 5px 15px black;
+}
+
+#flag-nav {
+    overflow: auto;
+    white-space: nowrap;
+    background-color:#EFD5BD;
+    border-bottom: 5px solid black;
+}
+
+#displayed-flag {
+    padding-bottom: 10px;
+    height: 320px;
+    width: auto;
+}
+
+#country-info {
+      margin: 25px 10px 20px 15px;
+      float: left;
+}
+
+#country-name {
+    padding-bottom: 10px;
+}
+
+#country-info p {
+    padding-bottom: 10px;
+}
+
+#right-elements {
+    float: right;
+    border-color: black;
+    border-width: thin;
+    border-style: solid;
+    margin: 20px;
+    padding: 10px;
+    font-family: auto;
+    font-size: 20px;
+    background-color: #EABBA4;
+}
+
+#language-form label{
+    margin-bottom: 10px;
+}
+
+#language-form {
+    margin: 30px;
+}
+
+#right-elements button {
+    float: right;
+    margin-top: 25px;
+    margin-right: 30px;
+}
+
+.hidden {
+    display: none;
 }
