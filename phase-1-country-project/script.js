@@ -5,10 +5,12 @@ const capital = document.getElementById('capital');
 const languages = document.getElementById('languages');
 const visitedBtn = document.getElementById('visited-button');
 const languageForm = document.getElementById('language-form');
+const countryFinderForm = document.getElementById('country-finder-form');
 const resetBtn = document.getElementById('reset-button');
 const randomBtn = document.getElementById('random-button');
 const newCountryForm = document.getElementById('new-country-form');
 const newCountryBtn = document.getElementById('new-country-button');
+const showVisitedButton = document.getElementById('show-visited-button');
 let currentCountry;
 let countryData;
 
@@ -37,6 +39,7 @@ function renderFlags (country) {
     flagImg.setAttribute('id', 'flag-image');
     flagImg.src=country.flags.png;
     flagImg.classList.add('flag-guide-img');
+    flagImg.title=country.name.common;
     flagNav.appendChild(flagImg);
 
     flagImg.addEventListener('click', () => {
@@ -71,18 +74,41 @@ languageForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const languageInput = languageForm.language.value;
     const filteredCountries = countryData.filter(country => {
-        const lowerCaseLanguages = Object.values(country.languages);
-        return lowerCaseLanguages.includes(languageInput);
+        const languageList = Object.values(country.languages);
+        return languageList.includes(languageInput);
     });
-    flagNav.innerHTML = '';
-    filteredCountries.map(country => renderFlags(country));
-    displayCountryFacts(filteredCountries[0]);
+    if (filteredCountries.length > 0) {
+        flagNav.innerHTML = '';
+        filteredCountries.map(country => renderFlags(country));
+        displayCountryFacts(filteredCountries[0]);
+    }
+    else {
+        alert('No countries found');
+    }
     languageForm.reset();
+})
+
+countryFinderForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const countryInput = countryFinderForm.country.value;
+    const foundCountry = countryData.find(country => {
+        return country.name.common === countryInput;
+    });
+    if (foundCountry !== undefined) {
+        flagNav.innerHTML = '';
+        renderFlags(foundCountry);
+        displayCountryFacts(foundCountry);
+    }
+    else {
+        alert('No country found');
+    }
+    countryFinderForm.reset();
 })
 
 resetBtn.addEventListener('click', () => {
     flagNav.innerHTML = '';
     countryData.map(country => renderFlags(country));
+    displayCountryFacts(countryData[0]);
 })
 
 randomBtn.addEventListener('click', () => {
@@ -104,6 +130,8 @@ function displayRandomFlag() {
 
 newCountryBtn.addEventListener('click', () => {
     newCountryForm.classList.remove('hidden');
+    newCountryBtn.classList.add('hidden');
+    newCountryBtn.classList.remove('fun-button');
 })
 
 newCountryForm.addEventListener('submit', (e) => {
@@ -118,7 +146,6 @@ newCountryForm.addEventListener('submit', (e) => {
         language: e.target['new-language'].value
     }
     
-    const newFlagImage = document.getElementById('flag-image');
     const file = document.getElementById('new-flag').files[0];
         let reader  = new FileReader();
         reader.onload = function(e)  {
@@ -134,4 +161,28 @@ newCountryForm.addEventListener('submit', (e) => {
          reader.readAsDataURL(file);
     newCountryForm.reset();
     newCountryForm.classList.add('hidden');
+    newCountryBtn.classList.remove('hidden');
+    newCountryBtn.classList.add('fun-button');
+})
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        newCountryForm.classList.add('hidden');
+        newCountryBtn.classList.remove('hidden');
+        newCountryBtn.classList.add('fun-button');
+    }
+})
+
+showVisitedButton.addEventListener('click', () => {
+    const visitedCountries = countryData.filter(country => {
+        return country.visited === true;
+    });
+    if (visitedCountries.length > 0) {
+        flagNav.innerHTML='';
+        visitedCountries.map(country => renderFlags(country));
+        displayCountryFacts(visitedCountries[0]);
+    }
+    else {
+        alert('No visited countries');
+    }
 })

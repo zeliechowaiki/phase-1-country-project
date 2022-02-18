@@ -5,11 +5,13 @@
 }
 
 html {
-    background-color: #F7EADE;
+    background-color: #ecd6ac;
+    /* background-image: url(images/parchment.jpg); */
+    background-size: cover;
 }
 
 h1 {
-    background-color:#EFD5BD;
+    background-color: #ecc58a;
     padding-left: 10px;
 }
 
@@ -26,7 +28,7 @@ h1 {
 #flag-nav {
     overflow: auto;
     white-space: nowrap;
-    background-color:#EFD5BD;
+    background-color: #ecc58a;
     border-bottom: 5px solid black;
 }
 
@@ -49,24 +51,66 @@ h1 {
     padding-bottom: 10px;
 }
 
-#right-elements {
-    float: right;
-}
-
 #language-form label{
     margin-bottom: 10px;
 }
 
 #language-form {
-    margin: 30px;
+    margin: 25px;
 }
 
-#right-elements button {
-    float: right;
-    margin-top: 25px;
-    margin-right: 30px;
+#country-finder-form {
+    margin: 25px;
 }
 
 .hidden {
     display: none;
 }
+
+#new-country-form {
+    background-color: #e7dbc9;
+    cursor:pointer;
+    height: 40%;
+    position:fixed;
+    text-align:center;
+    top:0;
+    width:35%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid #000000;
+    padding: 10px;
+    box-shadow: 0px 5px 30px black;
+}
+
+#new-country-form > * {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#submit-container {
+    margin: auto;
+    height: 40px;
+    width: 60px;
+    text-align: center;
+}
+
+.fun-button {
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#right-items {
+    float: right;
+    background-color: rgba(255,255,255, .5);
+    border: solid;
+    border-top: 0px;
+ }
+
+ #new-country-button {
+     margin-bottom: 25px;
+ }
+
