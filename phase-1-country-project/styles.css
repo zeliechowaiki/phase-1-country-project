@@ -13,6 +13,7 @@ html {
 h1 {
     background-color: #ecc58a;
     padding-left: 10px;
+    font-size: 40px;
 }
 
 .flag-guide-img {
@@ -68,13 +69,12 @@ h1 {
 }
 
 #new-country-form {
-    background-color: #e7dbc9;
-    cursor:pointer;
-    height: 40%;
+    background-color: #f4ebd8;
+    height: 45%;
     position:fixed;
     text-align:center;
     top:0;
-    width:35%;
+    width:25%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -82,6 +82,7 @@ h1 {
     border: 5px solid #000000;
     padding: 10px;
     box-shadow: 0px 5px 30px black;
+    border-radius: 40px;
 }
 
 #new-country-form > * {
@@ -101,6 +102,14 @@ h1 {
     display: block;
     margin: auto;
     margin-bottom: 10px;
+    font-size: 16px;
+    border-radius: 40px;
+    padding: 10px 28px;
+    background-color: rgb(175, 219, 236);
+}
+
+.fun-button:hover {
+    background-color: rgb(218, 245, 255);
 }
 
 #right-items {
@@ -108,9 +117,30 @@ h1 {
     background-color: rgba(255,255,255, .5);
     border: solid;
     border-top: 0px;
+    border-radius: 40px
  }
 
  #new-country-button {
      margin-bottom: 25px;
  }
 
+.submit {
+    border-radius: 40px;
+    padding:6px 10px;
+    background-color: rgb(175, 219, 236);
+}
+
+.submit:hover {
+    background-color: rgb(218, 245, 255);
+}
+
+#visited-button {
+    border-radius: 40px;
+    background-color: rgb(175, 219, 236);
+    font-size: 16px;
+    padding: 10px 28px;
+}
+
+#visited-button:hover {
+    background-color: rgb(218, 245, 255);
+}

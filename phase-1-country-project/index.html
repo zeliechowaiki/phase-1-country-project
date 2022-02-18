@@ -2,13 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>Country Guide</title>
+        <title>Digital Atlas</title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <script defer src="script.js"></script>
 
-        <h1>Country Guide</h1>
+        <h1>Digital Atlas</h1>
 
         <nav id="flag-nav"></nav>
         <div id="country-info">
@@ -22,12 +22,12 @@
             <form id="country-finder-form">
                 <label for="country">Search for a country:</label><br>
                 <input type="text" id="country" name="country">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" class="submit">
             </form>
             <form id="language-form">
                 <label for="language">Filter by language:</label><br>
                 <input type="text" id="language" name="language">
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" class="submit">
             </form>
             <button id="reset-button" class="fun-button">Show all countries</button>
             <button id="random-button" class="fun-button">Random country</button>
@@ -36,7 +36,7 @@
     </div>
         <form id="new-country-form" class="hidden">
             <label for="new-flag">Upload flag:</label>
-            <input type="file" name="new-flag" id="new-flag"
+            <input type="file" name="new-flag" id="new-flag" class="submit"
             accept="image/png, image/jpeg, image/jpg"><br>
             <label for="new-name">Name country:</label>
             <input type="text" name="new-name" id="new-name"><br>
@@ -44,7 +44,7 @@
             <input type="text" name="new-capital" id="new-capital"><br>
             <label for="new-language">Add language:</label>
             <input type="text" name="new-language" id="new-language"><br>
-            <span id="submit-container"><input type="submit" value="Submit" id="new-submit"></span>
+            <span id="submit-container"><input type="submit" value="Submit" id="new-submit" class="submit"></span>
         </form>
     </body>
 </html>

@@ -113,15 +113,11 @@ resetBtn.addEventListener('click', () => {
 
 randomBtn.addEventListener('click', () => {
     let counter = 1;
-    const firstInterval = setInterval(function() { 
+    setInterval(function() { 
         if (counter <= 12) { 
             displayRandomFlag();
             counter++;
-    }
-        else { 
-            clearInterval(firstInterval);
-    }
-    }, 160)
+    }}, 160)
 })
 
 function displayRandomFlag() {
